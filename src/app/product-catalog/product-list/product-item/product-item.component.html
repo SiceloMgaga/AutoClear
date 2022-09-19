@@ -1,0 +1,16 @@
+<div class="card mb-6 shadow-sm">
+  <!-- <img src="data:image/png;base64,QzpcZmFrZXBhdGhcc2hlcnJ5LWNocmlzdGlhbi04TXloNzZfM00yVS11bnNwbGFzaC5qcGc="/> -->
+  <img class="bd-placeholder-img card-img-top p-2" width="100%" src="{{productItem.imageUrl}}"/>
+      <p class="card-text col-sm-6" class="product move"><b>{{ productItem.productName }} </b></p>
+      <p class="card-text col-sm-6" class="move"><strong class="text-muted">{{productItem.productPrice | currency : "R"}}</strong></p>
+      <!-- <p class="card-text" class="move">{{ productItem.description }}</p> -->
+     
+      <div class="d-flex justify-content-between align-items-center">
+          <button mat-raised-button class="submitbutton" [routerLink]="'/single-product'" (click)="viewDetailsGetID(productItem.productId)">View Details</button>
+      </div>
+      <mat-card-actions class="col">
+        <button  class="AddtoCart" mat-raised-button (click)="AddtoCart()">Add To Cart</button>
+        <button class="addToWishlist" mat-raised-button (click)="addToWishlist(productItem)">Add To Wishlist</button>
+      </mat-card-actions>
+      <br>
+</div>

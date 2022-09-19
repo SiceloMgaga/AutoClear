@@ -1,0 +1,160 @@
+.active{
+    background-color: black;
+}
+
+.sidenav
+{
+    background-color: #263238;
+    transition: all .5s ease;
+    position: fixed; /*fixed, absolute, relative*/
+    z-index: 1;
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+    box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+:root {
+    --code-color: darkred;
+    --code-bg-color: #aaaaaa;
+    --code-font-size: 14px;
+    --code-line-height: 1.4;
+    --scroll-bar-color: #c5c5c5;
+    --scroll-bar-bg-color: #f6f6f6;
+}
+
+pre {
+    color: var(--code-color);
+    font-size: var(--code-font-size);
+    line-height: var(--code-line-height);
+    background-color: var(--code-bg-color);
+}
+
+::-webkit-scrollbar-corner { background: rgba(0,0,0,0.5); }
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-bar-color) var(--scroll-bar-bg-color);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--scroll-bar-bg-color);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-bar-color);
+    border-radius: 20px;
+    border: 3px solid var(--scroll-bar-bg-color);
+}
+  
+
+.logo-container
+{
+    display: flex;
+    align-items: center;
+    padding: 0.938rem 0.938rem 0 0.938rem;
+    width: 100%;
+}
+
+.logo{
+ background: white;
+ text-align: center;
+ width: 3rem;
+ min-width: 3rem;
+ border-radius: 0.625rem;
+ padding: 0.313rem;
+ font-size: 24px;
+ font-weight: 900;
+ cursor: pointer;
+ border: none;
+}
+.logobutton{
+background-color: transparent;
+ text-align: center;
+ width: 3rem;
+ min-width: 3rem;
+ border-radius: 0.625rem;
+ padding: 0.313rem;
+ font-size: 24px;
+ font-weight: 900;
+ cursor: pointer;
+ border: none;
+}
+
+.logo-text{
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+    margin-left: 1.5rem;
+}
+
+.btn-close{
+    margin-left: auto;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+}
+
+.fa-times{
+    color: white;
+    font-size: 24px;
+}
+
+.sidenav-collapsed{
+    width: 16.5625rem;
+}
+
+.sidenav-nav{
+    list-style: none;
+    padding: 0.938rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100%-3.65rem);
+    cursor: pointer;
+}
+
+.sidenav-nav-item
+{
+    width: 100%;
+    margin-bottom: 0.625rem;
+}
+
+.sidenav-nav-link{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    color: white;
+    text-decoration: none;
+    transition: all .3s ease;
+    border-radius: 0.625rem;
+}
+
+.sidenav-link-icon{
+    font-size: 22px;
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 0.5rem;
+    text-align: center;
+}
+
+.sidenav-link-text{
+    margin-left: 1.5rem;
+}
+
+.sidenav-nav-link:hover{
+    background-color: white;
+    color: black;
+}

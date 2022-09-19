@@ -1,0 +1,51 @@
+<form [formGroup]="formRegistration" autocomplete="off" (submit)="onSubmit()">
+  <div class="form-group">
+    <label class="text-white">Full Name</label>
+    <input class="form-control" formControlName="FullName">
+    <label class="text-danger" *ngIf="formRegistration.get('FullName')!.touched && formRegistration.get('FullName')!.errors?.['required']">
+        Please enter your full name</label>
+  </div>
+  <br>
+  <div class="form-group">
+    <label class="text-white">Phone Number</label>
+    <input class="form-control" formControlName="PhoneNumber">
+    <label class="text-danger" *ngIf="formRegistration.get('PhoneNumber')!.touched && formRegistration.get('PhoneNumber')!.errors?.['required']">
+        Please enter your phone number</label>
+  </div>
+  <br>
+    <div class="form-group">
+      <label class="text-white">Email</label>
+      <input class="form-control" formControlName="Email">
+      <label class="text-danger" *ngIf="formRegistration.get('Email')!.touched && formRegistration.get('Email')!.errors?.['email']">
+          Invalid email address</label>
+    </div>
+    <br>
+    <div formGroupName="Passwords">
+      <div class="form-group required">
+        <label class="text-white">Password</label>
+        <input type="password" class="form-control" formControlName="Password">
+        <label class="text-danger" *ngIf="formRegistration.get('Passwords.Password')!.touched && formRegistration.get('Passwords.Password')!.errors?.['required']">
+            Please enter a password.</label>
+        <label class="text-danger" *ngIf="formRegistration.get('Passwords.Password')!.touched && formRegistration.get('Passwords.Password')!.errors?.['minlength']">
+            Minimum 6 characters required
+        </label>
+      </div>
+      <br>
+      <div class="form-group required">
+        <label class="text-white">Confirm Password</label>
+        <input type="password" class="form-control" formControlName="ConfirmPassword">
+        <label class="text-danger" *ngIf="formRegistration.get('Passwords.ConfirmPassword')!.touched && formRegistration.get('Passwords.ConfirmPassword')!.errors?.['required']">
+            Please re-enter your password
+        </label>
+        <label class="text-danger" *ngIf="formRegistration.get('Passwords.ConfirmPassword')!.touched && formRegistration.get('Passwords.ConfirmPassword')!.errors?.['passwordMismatch']">Confirm
+          Password does not match
+        </label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-8 offset-md-2">
+        <button type="submit" class="btn btn-block">Sign Up</button>
+      </div>
+    </div>
+    <br>
+  </form>

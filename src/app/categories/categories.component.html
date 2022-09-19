@@ -1,0 +1,47 @@
+<div class="heading">
+  <h1 mat-dialog-title>Product Categories</h1>
+</div>
+<button align="end" mat-raised-button (click)="createDialog()">Add A New Product Category</button>
+
+<!--DATATABLE-->
+<mat-form-field appearance="standard">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search Cateories..." #input>
+  </mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="productCategoryId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Category ID </th>
+        <td mat-cell *matCellDef="let category"> {{category.productCategoryId}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Category </th>
+        <td mat-cell *matCellDef="let category"> {{category.category}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+        <td mat-cell *matCellDef="let category"> 
+          <div class="example-button-row">
+            <button mat-raised-button (click)="editDialog(category.productCategoryId)">Update</button>
+            <button mat-raised-button color="warn" (click)="[deleteCategory(category.productCategoryId),openSnackBar()]">Delete</button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let category; columns: displayedColumns;"></tr>
+  
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons  aria-label="Select page of categories"></mat-paginator>
+  </div>

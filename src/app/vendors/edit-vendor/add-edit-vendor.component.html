@@ -1,0 +1,94 @@
+<h2 mat-dialog-title>Update Details</h2>
+
+<div>  
+    <form [formGroup]="editForm">
+        
+        <p class="col">
+           
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Company Name</mat-label>
+                <input matInput placeholder="Company ABC" formControlName="companyName" value="{{vendor.BusinessName}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('companyName')!.touched && editForm.get('companyName')!.errors?.['required']">
+                    Please enter company name
+                </mat-hint>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Email Address</mat-label>
+                <input matInput placeholder="abc@mail.com" formControlName="emailAddress" value="{{vendor.EmailAddress}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('emailAddress')!.touched && editForm.get('emailAddress')!.errors?.['required']">
+                    Please enter email address
+                </mat-hint>
+            </mat-form-field>
+            
+        
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Commission</mat-label>
+                <input matInput placeholder="30" formControlName="commission" value="{{vendor.Commission}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('commission')!.touched && editForm.get('commission')!.errors?.['required']">
+                    Please enter comission
+                </mat-hint>
+            </mat-form-field>
+            
+             <mat-form-field appearance="outline" class="row">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="012 908 6754" formControlName="phone" value="{{vendor.CellphoneNumber}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('phone')!.touched && editForm.get('phone')!.errors?.['required']">
+                    Please enter phone number
+                </mat-hint>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Address Line 1</mat-label>
+                <input matInput formControlName="addressline1" value="{{vendor.VendorAddress_Line1}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('addressline1')!.touched && editForm.get('addressline1')!.errors?.['required']">
+                    Please enter address line
+                </mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Address Line 2</mat-label>
+                <input matInput formControlName="addressline2" value="{{vendor.VendorAddress_Line2}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('addressline2')!.touched && editForm.get('addressline2')!.errors?.['required']">
+                    Please enter address line
+                </mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Address Line 3</mat-label>
+                <input matInput formControlName="addressline3" value="{{vendor.VendorAddress_Line3}}" required>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>City/Town</mat-label>
+                <input matInput placeholder="Pretoria" formControlName="city" value="{{vendor.Vendor_City_Town}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('city')!.touched && editForm.get('city')!.errors?.['required']">
+                    Please enter city/town name
+                </mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Postal code</mat-label>
+                <input matInput placeholder="0000" formControlName="postalCode" value="{{vendor.Vendor_PostalCode}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('postalCode')!.touched && editForm.get('postalCode')!.errors?.['required']">
+                    Please enter postal code
+                </mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Vat Registration No.</mat-label>
+                <input matInput placeholder="123456789" formControlName="VatRegNo" value="{{vendor.VATReg}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('VatRegNo')!.touched && editForm.get('VatRegNo')!.errors?.['required']">
+                    Please enter vat registration number
+                </mat-hint>
+            </mat-form-field>
+        </p>
+
+        <mat-dialog-actions align="end">
+            <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+            <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateVendor()">Save</button>
+        </mat-dialog-actions>
+    </form>   
+</div>
+
+

@@ -1,0 +1,248 @@
+<mat-sidenav-container class="sidenav-container">
+   <mat-sidenav #drawer class="sidenav" fixedInViewport
+       [attr.role]="isHandset$ ? 'dialog' : 'navigation'"
+       [mode]="isHandset$ ? 'over' : 'side'"
+       [opened]="(isHandset$ | async) === true">
+       
+     <mat-toolbar class="title">Menu</mat-toolbar>
+     <mat-nav-list class="navItem">
+       <a mat-list-item [routerLink]="'/UserAccount'"><mat-icon>account_circle</mat-icon>Profile</a>
+       <a mat-list-item [routerLink]="'/promotions/onsale'"><mat-icon>card_giftcard</mat-icon>On Sale</a>
+       <a mat-list-item [routerLink]="'/logout'"><mat-icon>power_settings_new</mat-icon>Logout</a>
+       <a mat-list-item (click)="drawer.toggle()" mat-list-item><mat-icon>close</mat-icon>Close</a>
+     </mat-nav-list>
+   </mat-sidenav>
+   
+   <mat-sidenav-content>
+     <mat-toolbar class="navBar" color="primary">
+       <mat-toolbar-row>
+         <div class="heading">
+           <button
+           type="button"
+           aria-label="Toggle sidenav"
+           mat-icon-button
+           (click)="drawer.toggle()"
+           *ngIf="isHandset$">
+           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+           </button>
+         <span mat-button [routerLink]="'/autoclearstore'" class="title">AutoClear<img src="/assets/ACSRNDLOGO.png" class="logo"></span>
+         </div>
+         
+         <span class="example-spacer"></span>
+         <div>
+           <a mat-button class="listItem" [routerLink]="'/application'"><mat-icon>business_center</mat-icon></a>
+           <a mat-button class="listItem" [routerLink]="'/'"><mat-icon>info</mat-icon></a>
+           <a mat-button [routerLink]="'/shopping-cart'"><mat-icon matBadge="0" matBadgeColor="warn">shopping_cart</mat-icon></a>
+           <a mat-button [routerLink]="'/wishlist'"> <mat-icon matBadge="0" matBadgeColor="warn">favorite</mat-icon> </a>
+           <a mat-button [routerLink]="'/UserAccount'"><mat-icon>account_circle</mat-icon></a>
+         </div>
+       </mat-toolbar-row>
+     </mat-toolbar>
+
+<div class="page-wrapper">
+   <div class="checkout shopping">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-8 pr-5">
+
+               <!--BILLING INFO-->
+               <div class="billing-details mt-5">
+                  <h4 class="mb-4 border-bottom pb-4">Billing Details</h4>
+                  <form [formGroup]="OrderForm" class="checkout-form">
+                     <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group mb-4" >
+                              <mat-form-field appearance="outline">
+                                 <mat-label>First Name</mat-label>
+                                 <input formControlName="FirstName" matInput required>
+                                 <mat-hint class="alert text-danger" *ngIf="OrderForm.get('FirstName')!.touched && OrderForm.get('FirstName')!.errors?.['required']">
+                                    Please enter first name
+                                 </mat-hint>
+                             </mat-form-field>
+                           </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-4">
+                              <mat-form-field appearance="outline">
+                                 <mat-label>Last Name</mat-label>
+                                 <input formControlName="LastName" matInput required>
+                                 <mat-hint class="alert text-danger" *ngIf="OrderForm.get('LastName')!.touched && OrderForm.get('LastName')!.errors?.['required']">
+                                    Please enter last name
+                                 </mat-hint>
+                             </mat-form-field>
+                           </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <mat-form-field appearance="outline">
+                                 <mat-label>Billing Street Address</mat-label>
+                                 <input formControlName="BillingStreet" matInput required>
+                                 <mat-hint class="alert text-danger" *ngIf="OrderForm.get('BillingStreet')!.touched && OrderForm.get('BillingStreet')!.errors?.['required']">
+                                    Please enter street name
+                                 </mat-hint>
+                             </mat-form-field>
+                           </div>
+                        </div>
+                         <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <mat-form-field appearance="outline">
+                                 <mat-label>Town / City</mat-label>
+                                 <input formControlName="Town" matInput required>
+                                 <mat-hint class="alert text-danger" *ngIf="OrderForm.get('Town')!.touched && OrderForm.get('Town')!.errors?.['required']">
+                                    Please enter town name
+                                 </mat-hint>
+                             </mat-form-field>
+                           </div>
+                        </div>                        
+                        <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <mat-form-field appearance="outline">
+                                 <mat-label>Postcode / ZIP</mat-label>
+                                 <input formControlName="Postcode" matInput required>
+                                 <mat-hint class="alert text-danger" *ngIf="OrderForm.get('Postcode')!.touched && OrderForm.get('Postcode')!.errors?.['required']">
+                                    Please enter your postcode
+                                 </mat-hint>
+                             </mat-form-field>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+
+               <!--SHIPPING INFO-->
+               <div class="billing-details mt-5">
+                  <h4 class="mb-4 border-bottom pb-4">Shipping Details</h4>
+                  <form [formGroup]="OrderForm" class="checkout-form">
+                     <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <mat-form-field appearance="outline">
+                                 <mat-label>Shipping Street Address</mat-label>
+                                 <input formControlName="ShippingStreet" matInput required>
+                                 <mat-hint class="alert text-danger" *ngIf="OrderForm.get('ShippingStreet')!.touched && OrderForm.get('ShippingStreet')!.errors?.['required']">
+                                    Please enter street name
+                                 </mat-hint>
+                             </mat-form-field>
+                           </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <mat-form-field appearance="outline">
+                                 <mat-label>Town / City</mat-label>
+                                 <input formControlName="STown" matInput required>
+                                 <mat-hint class="alert text-danger" *ngIf="OrderForm.get('STown')!.touched && OrderForm.get('STown')!.errors?.['required']">
+                                    Please enter town name
+                                 </mat-hint>
+                             </mat-form-field>
+                           </div>
+                        </div>                      
+                        <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <mat-form-field appearance="outline">
+                                 <mat-label>Postcode / ZIP</mat-label>
+                                 <input formControlName="SPostcode" matInput required>
+                                 <mat-hint class="alert text-danger" *ngIf="OrderForm.get('SPostcode')!.touched && OrderForm.get('SPostcode')!.errors?.['required']">
+                                    Please enter your postcode
+                                 </mat-hint>
+                             </mat-form-field>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+
+               <!--CONTACT DETAILS-->
+               <div class="billing-details mt-5">
+                  <h4 class="mb-4 border-bottom pb-4">Contact Details</h4>
+                  <form [formGroup]="OrderForm">
+                     <div class="col-lg-12">
+                        <div class="form-group mb-4">
+                           <mat-form-field appearance="outline">
+                              <mat-label>Phone</mat-label>
+                              <input formControlName="Phone" matInput required>
+                                 <mat-hint class="alert text-danger" *ngIf="OrderForm.get('Phone')!.touched && OrderForm.get('Phone')!.errors?.['required']">
+                                    Please enter your phone number
+                                 </mat-hint>
+                          </mat-form-field>
+                       </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group mb-4">
+                           <mat-form-field appearance="outline">
+                              <mat-label>Email Address</mat-label>
+                              <input formControlName="EmailAddress" matInput required>
+                                 <mat-hint class="alert text-danger" *ngIf="OrderForm.get('EmailAddress')!.touched && OrderForm.get('EmailAddress')!.errors?.['required']">
+                                    Please enter your email address
+                                 </mat-hint>
+                          </mat-form-field>
+                       </div>
+                    </div> 
+                    <div class="col-lg-12">
+                     <div class="form-group mb-4">
+                       <label for="first_name">Order notes (optional)</label>
+                       <textarea class="form-control" id="msg" cols="30" rows="5" placeholder="Notes about order e:g: want to say something"></textarea>
+                    </div>
+                 </div> 
+               </form>
+               </div>
+            </div>
+
+<!-- Order sidebar Summary -->
+<div class="col-md-6 col-lg-4">
+  <div class="product-checkout-details mt-5 mt-lg-0">
+        <h4 class="mb-4 border-bottom pb-4">Order Summary</h4>
+        <div class="media product-card">
+            <div *ngIf="cartItems.length === 0"  class="alert alert-info">Your Cart Is Currently Empty.</div>
+               <ul  *ngIf="cartItems.length > 0 "  class="list-group">
+                  <li class="list-group-item" *ngFor="let item of cartItems">
+                      <app-cart-item [cartItem] = "item"></app-cart-item>
+                  </li>
+               </ul>
+            </div>
+           <ul class="summary-prices list-unstyled mb-4">
+               <li class="d-flex justify-content-between">
+                  <strong >Subtotal:</strong>
+                  <span class="h5">{{ cartTotal | currency: "R"}}</span>
+               </li>
+               <li class="d-flex justify-content-between">
+                  <span >Shipping:</span>
+                  <span class="h5">Free</span>
+               </li>
+               <li class="d-flex justify-content-between">
+                  <span>Total:</span>
+                  <span class="h5">{{ cartTotal | currency: "R"}}</span>
+               </li>
+            </ul>
+      
+
+         <form [formGroup]="OrderForm" method="post">
+            <div class="form-check mb-3">
+               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+               <label class="form-check-label" for="exampleRadios1">
+                  Direct bank transfer 
+               </label>
+               <div class="alert alert-secondary mt-3" role="alert">
+                  Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+               </div>
+            </div>
+            <div class="form-check mb-3">
+               <input  formControlName="TermsandConditions" type="checkbox" class="form-check-input" id="exampleCheck3">
+               <label class="form-check-label" for="exampleCheck3">I have read and agree to the website terms and conditions</label>
+            </div>
+         </form>
+
+         <div class="info mt-4 border-top pt-4 mb-5">
+            Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="#">privacy policy</a>.
+         </div>
+            <!--PAYFAST FORM-->
+            <form #form action="https://sandbox.payfast.co.za​/eng/process" method="post">
+               <ng-container *ngFor="let proddetail of (onRemoteSiteUserData | keyvalue)">
+                  <input type="hidden" name="{{proddetail.key}}" value="{{proddetail.value}}">
+               </ng-container>
+                  <button [disabled]="OrderForm.invalid" mat-raised-button (click)="[form.submit(),captureOrder(),captureSale()]">Place Order</button>
+            </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   <app-footer></app-footer>

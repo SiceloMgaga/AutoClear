@@ -1,0 +1,34 @@
+.submitbutton{
+    width: 98% !important;
+    height: 1.2cm;
+    background-color: orange;
+    color: white;
+    margin-left: 1% !important;
+  }
+
+.AddtoCart{
+    margin-left: 1% !important;
+    margin-top: 3% !important;
+    height: 1.2cm;
+    background-color: #263238;
+    color: white;
+    width: 49%;
+  }
+
+.addToWishlist{
+    margin-left: 1% !important;
+    margin-top: 3% !important;
+    background-color: #263238;
+    color: white;
+    height: 1.2cm;
+    width: 49%;
+}
+
+.product{
+  font-weight: 900 !important;
+  font-size: 20px !important;
+}
+
+.move{
+  margin-left: 0.5cm !important;
+}

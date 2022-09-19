@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Add Type</h2>
+
+<div>  
+    <form [formGroup]="createForm">
+        
+        <p class="col">
+           
+            <<mat-form-field appearance="outline"  class="row">
+                <mat-label>Type Name</mat-label>
+                <input matInput placeholder="Engine" formControlName="TypeName" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('TypeName')!.touched && createForm.get('TypeName')!.errors?.['required']">
+                    Please enter a type name
+                </mat-hint>
+            </mat-form-field>
+        </p>
+
+        <mat-dialog-actions align="end">
+            <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+            <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="addType()">Save</button>
+        </mat-dialog-actions>
+
+    </form>
+</div>
+

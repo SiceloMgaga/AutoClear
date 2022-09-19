@@ -1,0 +1,89 @@
+<h2 mat-dialog-title>Update Details</h2>
+
+<div> 
+    <form [formGroup]="editForm">
+      <p class="col">
+        <mat-form-field appearance="outline"  class="row">
+            <mat-label>Product Name</mat-label>
+            <input matInput formControlName="ProductName" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('ProductName')!.touched && editForm.get('ProductName')!.errors?.['required']">
+                    Please enter product name
+                </mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="row">
+          <mat-label>Brand</mat-label>
+            <mat-select formControlName="Brand" required>
+              <mat-option *ngFor="let brand of brands" [value]="brand.brandName">
+                {{brand.brandName}}
+              </mat-option>
+             </mat-select>
+         </mat-form-field>
+    
+         <mat-form-field appearance="outline" class="row">
+          <mat-label>Type</mat-label>
+            <mat-select formControlName="Type">
+              <mat-option *ngFor="let type of types" [value]="type.typeName">
+                {{type.typeName}}
+              </mat-option>
+             </mat-select>
+         </mat-form-field>
+    
+         <mat-form-field appearance="outline" class="row">
+          <mat-label>Category</mat-label>
+            <mat-select formControlName="Category">
+              <mat-option *ngFor="let category of categories" [value]="category.category">
+                {{category.category}}
+              </mat-option>
+             </mat-select>
+         </mat-form-field>
+    
+        <mat-form-field appearance="outline"  class="row">
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="ProductPrice" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('ProductPrice')!.touched && editForm.get('ProductPrice')!.errors?.['required']">
+                    Please enter a product price
+                </mat-hint>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="row">
+          <mat-label>Discount</mat-label>
+            <mat-select formControlName="discount">
+              <mat-option *ngFor="let discount of discounts" [value]="discount.discountAmount">
+                {{discount.discountAmount}} %
+              </mat-option>
+             </mat-select>
+         </mat-form-field>
+  
+         <mat-form-field appearance="outline" class="row">
+          <mat-label>Discount Type</mat-label>
+            <mat-select formControlName="discountType">
+              <mat-option *ngFor="let discountType of discountTypes" [value]="discountType.description">
+                {{discountType.description}}
+              </mat-option>
+             </mat-select>
+         </mat-form-field>
+    
+        <mat-form-field appearance="outline" class="row">
+          <mat-label>Start Date</mat-label>
+          <input matInput [matDatepicker]="picker1" formControlName="startDate">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="row">
+          <mat-label>End Date</mat-label>
+          <input matInput [matDatepicker]="picker2" formControlName="endDate">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </p>
+    </form>    
+  </div>
+
+<mat-dialog-actions align="end">
+    <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateDeal()">Save</button>
+</mat-dialog-actions>

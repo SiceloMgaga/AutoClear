@@ -1,0 +1,77 @@
+.row{
+    margin-left: 1cm;
+}
+
+.title
+{
+  margin-top: 0.5cm;
+  font-size: 24px;
+  font-weight: 900;
+  margin-left: 0.5rem;
+  margin-right: 0.5cm !important;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.navBar
+{
+  background-color: #263238;
+  height: 2.5cm;
+}
+
+.list
+{
+  margin-left: 5%;
+  margin-top: 1cm;
+  // align-content: center;
+}
+
+.heading{
+  margin-top: 1cm;
+}
+
+.logo{
+  background: white;
+  text-align: center;
+  width: 3rem;
+  min-width: 3rem;
+  border-radius: 30px;
+  padding: 0.313rem;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  border: none;
+ }
+
+.mat-card{
+    margin-top: 1cm !important;
+}
+.mat-form-field{
+    width: 11cm !important;
+}
+
+.mat-card-title{
+    text-align: center !important;
+    align-items: center !important;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 1cm !important;
+}
+
+.heading{
+    margin-left: 1.2cm;
+    font-size: 15px;
+    font-weight: 900;
+
+}
+
+.apply{
+    background-color: #263238;
+    color: white;
+    margin-left: 1.4cm !important;
+    margin-bottom: 1cm;
+    width: 11cm;
+    height: 1.2cm;
+}

@@ -1,0 +1,137 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="isHandset$ ? 'dialog' : 'navigation'"
+      [mode]="isHandset$ ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === true">
+      
+    <mat-toolbar class="title">Menu</mat-toolbar>
+    <mat-nav-list class="navItem">
+      <a mat-list-item [routerLink]="'/UserAccount'"><mat-icon>account_circle</mat-icon>Profile</a>
+      <a mat-list-item [routerLink]="'/promotions/onsale'"><mat-icon>card_giftcard</mat-icon>On Sale</a>
+      <a mat-list-item [routerLink]="'/logout'"><mat-icon>power_settings_new</mat-icon>Logout</a>
+      <a mat-list-item (click)="drawer.toggle()" mat-list-item><mat-icon>close</mat-icon>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <mat-toolbar class="navBar" color="primary">
+      <mat-toolbar-row>
+        <div class="heading">
+          <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+        <span mat-button [routerLink]="'/autoclearstore'" class="title">AutoClear<img src="/assets/ACSRNDLOGO.png" class="logo"></span>
+        </div>
+        
+        <span class="example-spacer"></span>
+        <div>
+          <a mat-button class="listItem" [routerLink]="'/autoclearstore'"><mat-icon>store</mat-icon></a>
+          <a mat-button class="listItem" [routerLink]="'/'"><mat-icon>info</mat-icon></a>
+          <a mat-button [routerLink]="'/shopping-cart'"><mat-icon matBadge="0" matBadgeColor="warn">shopping_cart</mat-icon></a>
+          <a mat-button [routerLink]="'/wishlist'"> <mat-icon matBadge="0" matBadgeColor="warn">favorite</mat-icon> </a>
+          <a mat-button [routerLink]="'/UserAccount'"><mat-icon>account_circle</mat-icon></a>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+
+
+<form [formGroup]="formApply" autocomplete="on" (submit)="onSubmit()">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Apply now and become a vendor</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline"  class="full-width">
+              <input formControlName="BusinessName" matInput placeholder="Business Name">
+              <mat-hint style="color: red;" *ngIf="formApply.get('BusinessName')!.touched && formApply.get('BusinessName')!.errors?.['required']">
+                Please enter your business name
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <input formControlName="EmailAddress" matInput placeholder="Email Address">
+              <mat-hint style="color: red;" *ngIf="formApply.get('EmailAddress')!.touched && formApply.get('EmailAddress')!.errors?.['email']">
+                Please enter your email address
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <input formControlName="CellphoneNumber" matInput placeholder="Phone Number">
+              <mat-hint style="color: red;" *ngIf="formApply.get('CellphoneNumber')!.touched && formApply.get('CellphoneNumber')!.errors?.['required']">
+                Please enter your phone number
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline"  class="full-width">
+              <input formControlName="VendorAddress_Line1" matInput placeholder="Address Line 1">
+              <mat-hint style="color: red;" *ngIf="formApply.get('VendorAddress_Line1')!.touched && formApply.get('VendorAddress_Line1')!.errors?.['required']">
+                Please enter your address
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <input formControlName="VendorAddress_Line2" matInput placeholder="Address Line 2">
+              <mat-hint style="color: red;" *ngIf="formApply.get('VendorAddress_Line2')!.touched && formApply.get('VendorAddress_Line2')!.errors?.['required']">
+                Please enter your address
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <input formControlName="VendorAddress_Line3" matInput placeholder="Address Line 3">
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <input formControlName="Vendor_City_Town" matInput placeholder="City/Town">
+              <mat-hint style="color: red;" *ngIf="formApply.get('Vendor_City_Town')!.touched && formApply.get('Vendor_City_Town')!.errors?.['required']">
+                Please enter your city
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <input formControlName="Vendor_PostalCode" matInput placeholder="Postal Code">
+              <mat-hint style="color: red;" *ngIf="formApply.get('Vendor_PostalCode')!.touched && formApply.get('Vendor_PostalCode')!.errors?.['required']">
+                Please enter your postal code
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <input formControlName="VATReg" matInput placeholder="VAT Registration">
+              <mat-hint style="color: red;" *ngIf="formApply.get('VATReg')!.touched && formApply.get('VATReg')!.errors?.['required']">
+                Please enter your VAT Registration number
+              </mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button class="apply">Apply</button>
+      </mat-card-actions>
+    </mat-card>
+</form>
+<app-footer></app-footer>

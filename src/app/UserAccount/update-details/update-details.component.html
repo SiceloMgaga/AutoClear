@@ -1,0 +1,58 @@
+<h2 mat-dialog-title>Update Details</h2>
+
+<div>
+  <form [formGroup]="editForm">
+    <h3 class="heading">Login Details</h3>
+    <p>
+        <mat-form-field appearance="outline"  class="row">
+            <mat-label>User Name</mat-label>
+            <input matInput formControlName="Username" required value="{{users.Username}}">
+            <mat-hint class="text-danger" *ngIf="editForm.get('Username')!.touched && editForm.get('Username')!.errors?.['required']">
+              Field cannot be empty
+          </mat-hint>
+        </mat-form-field>
+    </p>
+
+    <h3 class="heading">Personal Details</h3>
+    <p>
+        <mat-form-field appearance="outline"  class="row">
+            <mat-label>FullName</mat-label>
+            <input matInput formControlName="FullName" required value="{{users.FullName}}">
+            <mat-hint class="text-danger" *ngIf="editForm.get('FullName')!.touched && editForm.get('FullName')!.errors?.['required']">
+              Field cannot be empty
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"  class="row">
+            <mat-label>Cell Phone Number</mat-label>
+            <input matInput formControlName="PhoneNumber" required value="{{users.PhoneNumber}}">
+            <mat-hint class="text-danger" *ngIf="editForm.get('PhoneNumber')!.touched && editForm.get('PhoneNumber')!.errors?.['required']">
+              Field cannot be empty
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"  class="row">
+            <mat-label>Email Address</mat-label>
+            <input matInput formControlName="Email" required value="{{users.Email}}">
+            <mat-hint class="text-danger" *ngIf="editForm.get('Email')!.touched && editForm.get('Email')!.errors?.['required']">
+              Field cannot be empty
+          </mat-hint>
+        </mat-form-field>
+    </p>
+
+    <h3 class="heading">Demographic Details</h3>
+    <p>
+        <mat-form-field appearance="outline" class="row">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="Address" required value="{{users.Address}}">
+            <mat-hint class="text-danger" *ngIf="editForm.get('Address')!.touched && editForm.get('Address')!.errors?.['required']">
+              Field cannot be empty
+          </mat-hint>
+        </mat-form-field>
+     </p>
+  </form>
+</div>
+
+<mat-dialog-actions align="end">
+  <button class="close" mat-raised-button cdkFocusInitial (click)="updateProfile()">Save Changes</button>
+</mat-dialog-actions>

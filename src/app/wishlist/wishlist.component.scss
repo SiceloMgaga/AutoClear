@@ -1,0 +1,151 @@
+// .card {
+//     max-width: 400px;
+//     margin-bottom: 8px;
+//   }
+
+.col-md-3{
+  margin-top: 1cm;
+  margin-left: 2cm;
+  margin-bottom: 0.5cm;
+}
+
+.remove{
+  margin-left: 2cm !important;
+}
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .example-card {
+    max-width: 600px;
+    margin-left: 25%;
+    margin-top: 5%;
+    margin-bottom: 2cm;
+  }
+  
+  .label{
+    font-size: 24px !important;
+    font-weight: 900 !important;
+  }
+  
+  .mat-tab-group{
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  .mat-raised-button
+  {
+    background-color: #263238;
+    color: white;
+    width: auto;
+    height: 1cm;
+  }
+  
+  #heading
+  {
+    margin-top: 1cm;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .Price{
+   margin-bottom: 0.5cm;
+    margin-left: 50%;
+  }
+  
+  
+  .submitbutton{
+    width: 98% !important;
+    height: 1.5cm;
+    background-color: orange;
+  }
+  .mat-tab-group{
+    margin-bottom: 1cm;
+  }
+  .mat-form-field
+  {
+    width: 98%;
+  }
+  .container
+  {
+    align-items: center;
+  }
+  
+  .title
+  {
+    margin-top: 0.5cm;
+    font-size: 24px;
+    font-weight: 900;
+    margin-left: 0.5rem;
+    margin-right: 0.5cm !important;
+  }
+  
+  .navBar
+  {
+    background-color: #263238;
+    height: 2.5cm;
+  }
+  
+  .list
+  {
+    margin-left: 5%;
+    margin-top: 1cm;
+    // align-content: center;
+  }
+  
+  .heading{
+    margin-top: 1cm;
+  }
+  
+  .logo{
+    background: white;
+    text-align: center;
+    width: 3rem;
+    min-width: 3rem;
+    border-radius: 30px;
+    padding: 0.313rem;
+    font-size: 24px;
+    font-weight: 900;
+    cursor: pointer;
+    border: none;
+   }
+
+   :root {
+    --code-color: darkred;
+    --code-bg-color: #aaaaaa;
+    --code-font-size: 14px;
+    --code-line-height: 1.4;
+    --scroll-bar-color: #c5c5c5;
+    --scroll-bar-bg-color: #f6f6f6;
+  }
+  
+  pre {
+    color: var(--code-color);
+    font-size: var(--code-font-size);
+    line-height: var(--code-line-height);
+    background-color: var(--code-bg-color);
+  }
+  
+  ::-webkit-scrollbar-corner { background: rgba(0,0,0,0.5); }
+  
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-bar-color) var(--scroll-bar-bg-color);
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: var(--scroll-bar-bg-color);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-bar-color);
+    border-radius: 20px;
+    border: 3px solid var(--scroll-bar-bg-color);
+  }

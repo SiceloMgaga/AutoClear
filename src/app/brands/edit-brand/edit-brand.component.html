@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Update Details</h2>
+
+<div>  
+    <form [formGroup]="editForm">
+        
+        <p class="col">
+           
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Brand</mat-label>
+                <input matInput placeholder="Engine" formControlName="BrandName" value="{{brand.BrandName}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('BrandName')!.touched && editForm.get('BrandName')!.errors?.['required']">
+                    Please enter a brand name
+                </mat-hint>
+            </mat-form-field>
+        </p>
+
+        <mat-dialog-actions align="end">
+            <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+            <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateBrand()">Save</button>
+        </mat-dialog-actions>
+
+    </form>
+</div>

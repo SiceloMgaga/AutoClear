@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Update Details</h2>
+
+<div>  
+    <form [formGroup]="editForm">
+        
+        <p class="col">
+           
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Category</mat-label>
+                <input matInput placeholder="Engine" formControlName="Category" value="{{category.Category}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('Category')!.touched && editForm.get('Category')!.errors?.['required']">
+                    Please enter a category
+                </mat-hint>
+            </mat-form-field>
+        </p>
+
+        <mat-dialog-actions align="end">
+            <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+            <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateCategory()">Save</button>
+        </mat-dialog-actions>
+
+    </form>
+</div>

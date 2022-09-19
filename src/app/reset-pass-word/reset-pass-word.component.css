@@ -1,0 +1,28 @@
+.row{
+    margin-left: 1cm;
+}
+
+.form{
+    align-items: center;
+    align-content: center;
+    margin-left: 35%;
+    
+}
+.mat-form-field{
+    width: 10cm !important;
+}
+
+.mat-dialog-title{
+    text-align: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 900;
+    margin-top: 2cm !important;
+}
+
+.close{
+    background-color: #263238;
+    color: white;
+    margin-left: 3.5cm;
+    height:1cm;
+}

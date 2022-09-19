@@ -1,0 +1,102 @@
+<h2 mat-dialog-title>Add New Vendor</h2>
+
+<div>  
+    <form [formGroup]="createForm">
+        
+        <p class="col">
+
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Vendor ID</mat-label>
+                <input matInput formControlName="id" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('id')!.touched && createForm.get('id')!.errors?.['required']">
+                    Please enter an ID
+                </mat-hint>
+            </mat-form-field>
+           
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Company Name</mat-label>
+                <input matInput placeholder="Company ABC" formControlName="companyName" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('companyName')!.touched && createForm.get('companyName')!.errors?.['required']">
+                    Please enter company name
+                </mat-hint>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Email Address</mat-label>
+                <input matInput placeholder="abc@mail.com" formControlName="emailAddress" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('emailAddress')!.touched && createForm.get('emailAddress')!.errors?.['required']">
+                    Please enter email address
+                </mat-hint>
+            </mat-form-field>
+            
+        
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Commission</mat-label>
+                <input matInput placeholder="30" formControlName="commission" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('commission')!.touched && createForm.get('commission')!.errors?.['required']">
+                    Please enter comission
+                </mat-hint>
+            </mat-form-field>
+            
+             <mat-form-field appearance="outline" class="row">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="012 908 6754" formControlName="phone" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('phone')!.touched && createForm.get('phone')!.errors?.['required']">
+                    Please enter phone number
+                </mat-hint>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Address Line 1</mat-label>
+                <input matInput formControlName="addressline1" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('addressline1')!.touched && createForm.get('addressline1')!.errors?.['required']">
+                    Please enter address line
+                </mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Address Line 2</mat-label>
+                <input matInput formControlName="addressline2" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('addressline2')!.touched && createForm.get('addressline2')!.errors?.['required']">
+                    Please enter address line
+                </mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Address Line 3</mat-label>
+                <input matInput formControlName="addressline3" required>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>City/Town</mat-label>
+                <input matInput placeholder="Pretoria" formControlName="city" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('city')!.touched && createForm.get('city')!.errors?.['required']">
+                    Please enter city/town name
+                </mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Postal code</mat-label>
+                <input matInput placeholder="0000" formControlName="postalCode" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('postalCode')!.touched && createForm.get('postalCode')!.errors?.['required']">
+                    Please enter postal code
+                </mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Vat Registration No.</mat-label>
+                <input matInput placeholder="123456789" formControlName="VatRegNo" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('VatRegNo')!.touched && createForm.get('VatRegNo')!.errors?.['required']">
+                    Please enter vat registration number
+                </mat-hint>
+            </mat-form-field>
+        </p>
+    </form> 
+
+    <mat-dialog-actions align="end">
+        <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+        <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="addVendor()">Save</button>
+    </mat-dialog-actions>  
+</div>
+
+

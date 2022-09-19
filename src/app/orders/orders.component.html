@@ -1,0 +1,73 @@
+<div class="heading">
+    <h1 mat-dialog-title>Orders</h1>
+</div>
+<button align="end" mat-raised-button (click)="downloadpdf()">Download pdf</button>
+<!-- <button mat-raised-button (click)="viewDialog()">view</button> -->
+  
+  <!--DATATABLE-->
+  <mat-form-field appearance="standard">
+  <mat-label>Search</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search order..." #input>
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+  <table stripped mat-table [dataSource]="dataSource" matSort id="orders">
+  
+    <!--Order No Column -->
+    <ng-container matColumnDef="orderNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Number</th>
+      <td mat-cell *matCellDef="let order"> {{order.orderId}} </td>
+    </ng-container>
+
+    <!--Order No Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Number</th>
+      <td mat-cell *matCellDef="let order"> {{order.date}} </td>
+    </ng-container>
+  
+    <!-- Quantity Column -->
+    <ng-container matColumnDef="quatinty">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+      <td mat-cell *matCellDef="let order"> {{order.quantity}} Unit(s)</td>
+    </ng-container>
+  
+    <!-- Total Column -->
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+      <td mat-cell *matCellDef="let order"> {{order.total | currency: "R"}} </td>
+    </ng-container>
+  
+    <!-- Status Column -->
+    <ng-container matColumnDef="orderStatus">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Status </th>
+      <td mat-cell *matCellDef="let order"> {{order.status}} </td>
+    </ng-container>
+  
+    <!-- Action Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+      <td mat-cell *matCellDef="let order"> 
+        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item (click)="viewDialog(order.orderId)">view</button>
+          <button mat-menu-item (click)="[deleteOrder(order.orderId),openSnackBar(order.orderId)]">Cancel</button>
+          <!-- <button mat-menu-item (click)="requestRefund()">Request refund</button> -->
+        </mat-menu>
+      </td>
+    </ng-container>
+
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let customer; columns: displayedColumns;"></tr>
+  
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="nomatch mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+  
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons  aria-label="Select page of users"></mat-paginator>
+  </div>
+  

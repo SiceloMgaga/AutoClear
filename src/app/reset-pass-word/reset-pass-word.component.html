@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Reset Password</h2>
+
+<form [formGroup]="resetPassword" class="form">
+    <div formGroupName="Passwords">     
+        <p>
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>New Password</mat-label>
+                <input matInput formControlName="NewPassword" required>
+                <mat-hint class="text-danger" *ngIf="resetPassword.get('Passwords.NewPassword')!.touched && resetPassword.get('Passwords.NewPassword')!.errors?.['required']">
+                    Please enter a password.
+                </mat-hint>
+                <mat-hint class="text-danger" *ngIf="resetPassword.get('Passwords.NewPassword')!.touched && resetPassword.get('Passwords.NewPassword')!.errors?.['minlength']">
+                    Minimum 6 characters required
+                </mat-hint>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Confirm New Password</mat-label>
+                <input matInput formControlName="ConfirmPassword" required>
+                <mat-hint class="text-danger" *ngIf="resetPassword.get('Passwords.ConfirmPassword')!.touched && resetPassword.get('Passwords.ConfirmPassword')!.errors?.['required']">
+                    Please re-enter your password
+                </mat-hint>
+                <mat-hint class="text-danger" *ngIf="resetPassword.get('Passwords.ConfirmPassword')!.touched && resetPassword.get('Passwords.ConfirmPassword')!.errors?.['passwordMismatch']">Confirm
+                  Password does not match
+                </mat-hint>
+            </mat-form-field>
+        </p>
+    </div>
+
+    <mat-dialog-actions align="">
+        <button class="close" mat-raised-button (click)="updatePassword()">Save Changes</button>
+    </mat-dialog-actions>
+</form>
+

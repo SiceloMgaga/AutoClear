@@ -1,0 +1,47 @@
+<div class="grid-container">
+  <h1 class="mat-h1 display-6">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <div *ngIf="card.title === 'Sales Order'">
+                <button mat-menu-item (click)="openOrderReportDialog()">view report</button>
+              </div>
+              <div *ngIf="card.title === 'Sales'">
+                <button mat-menu-item (click)="openSaleReportDialog()">view report</button>
+              </div>
+              <div *ngIf="card.title === 'Registered Users'">
+                <button mat-menu-item (click)="openStatsDialog()">view report</button>
+              </div>
+              <div *ngIf="card.title === 'Orders'">
+                <button mat-menu-item (click)="openStatsDialog()">view report</button>
+              </div>
+              <div *ngIf="card.title === 'Products On Sale'">
+                <button mat-menu-item (click)="openStatsDialog()">view report</button>
+              </div>
+              <div *ngIf="card.title === 'Vendors'">
+                <button mat-menu-item (click)="openStatsDialog()">view report</button>
+              </div>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <app-dashboard-orders *ngIf="card.title === 'Sales Order'"></app-dashboard-orders>
+            <app-orders-stats *ngIf="card.title === 'Orders'"></app-orders-stats>
+            <app-users-stats *ngIf="card.title === 'Registered Users'"></app-users-stats>
+            <app-products-stats *ngIf="card.title === 'Products On Sale'"></app-products-stats>
+            <app-vendors-stats *ngIf="card.title === 'Vendors'"></app-vendors-stats>
+            <app-sale *ngIf="card.title === 'Sales'"></app-sale>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,25 @@
+<img src="/assets/ACSRNDLOGO.png" class="mx-auto d-block" style="height:180px;width:180px">
+<form [formGroup]="formLogin" class="mb-4" autocomplete="off" (submit)="onSubmit()">
+    <div class="form-group">
+      <label class="text-white">Email</label>
+      <input class="form-control" name="Email" formControlName="Email" required>
+      <label class="text-danger" *ngIf="formLogin.get('Email')!.touched && formLogin.get('Email')!.errors?.['email']">
+          Please enter your email
+      </label>
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="text-white">Password</label>
+      <input type="password" class="form-control" name="Password" formControlName="Password" required>
+      <label class="text-danger" *ngIf="formLogin.get('Password')!.touched && formLogin.get('Password')!.errors?.['required']">
+          Please enter a password
+      </label>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-8 offset-md-2">
+        <button type="submit" class="btn btn-block" [disabled]="formLogin.invalid">Login</button>
+      </div>
+    </div>
+
+    <h4 class="forgotPassword" [routerLink]="'/forgotpassword'" routerLink="active">forgot password</h4>
+  </form>

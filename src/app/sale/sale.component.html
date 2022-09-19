@@ -1,0 +1,61 @@
+<!-- <div class="heading">
+    <h1 mat-dialog-title>Sales</h1>
+</div> -->
+<!-- <button align="end" mat-raised-button (click)="downloadpdf()">Download pdf</button> -->
+<!-- <button mat-raised-button (click)="viewDialog()">view</button> -->
+  
+  <!--DATATABLE-->
+  <!-- <mat-form-field appearance="standard">
+  <mat-label>Search</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search sale..." #input>
+  </mat-form-field> -->
+  
+  <div class="mat-elevation-z8">
+  <table stripped mat-table [dataSource]="dataSource" matSort id="sales">
+  
+    <!--Name Column -->
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</th>
+      <td mat-cell *matCellDef="let sale"> {{sale.productName}} </td>
+    </ng-container>
+  
+    <!-- Description Column -->
+    <ng-container matColumnDef="productDescription">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Description </th>
+      <td mat-cell *matCellDef="let sale"> {{sale.productDescription}}</td>
+    </ng-container>
+  
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+      <td mat-cell *matCellDef="let sale"> {{sale.date}} </td>
+    </ng-container>
+  
+    <!-- Quantity Column -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+      <td mat-cell *matCellDef="let sale"> {{sale.quantity}} units(s) </td>
+    </ng-container>
+
+     <!-- Product Price Column -->
+     <ng-container matColumnDef="productPrice">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Price </th>
+        <td mat-cell *matCellDef="let sale"> {{sale.productPrice | currency:"R"}} </td>
+      </ng-container>
+
+    <!-- Total Column -->
+    <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+        <td mat-cell *matCellDef="let sale"> {{sale.total | currency:"R"}} </td>
+      </ng-container>
+  
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let customer; columns: displayedColumns;"></tr>
+  
+    
+  </table>
+  
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons  aria-label="Select page of sales"></mat-paginator>
+  </div>
+  

@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Order Details</h2>
+ <div>
+    <!--Customer details-->
+    <mat-card>
+      <mat-card-title>Customer</mat-card-title>
+      <mat-card-content>
+        <p>Name: {{customerName}}</p>
+        <p>Shipment Method: Collection</p>
+        <p>Billing Address:{{Billing}}</p>
+        <p>Shipping Address:{{Shipping}}</p>
+      </mat-card-content>
+    </mat-card>
+    <!-- <br>
+    <mat-card>
+      <mat-card-title>Order Items</mat-card-title>
+      <mat-card-content>
+        <p>2.1L Bosch Engine x 1</p>
+        <p>1L Motul oil x 4</p>
+        <p>Brake padal x 1</p>
+      </mat-card-content>
+    </mat-card> -->
+    <br>
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="editForm">
+          <mat-form-field appearance="outline" class="row">
+            <mat-label>Order Status</mat-label>
+              <mat-select formControlName="orderStatus" required>
+                <mat-option *ngFor="let status of statuses" [value]="status.description">
+                  {{status.description}}
+                </mat-option>
+               </mat-select>
+           </mat-form-field>
+        </form>
+         <button mat-raised-button (click)="updateStatus()">Change</button>
+         <p>Date Created: {{date}}</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-dialog-actions align="end">
+        <button class="close" mat-raised-button mat-dialog-close>Close</button>
+    </mat-dialog-actions> 
+ </div>

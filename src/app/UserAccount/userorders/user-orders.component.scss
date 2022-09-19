@@ -1,0 +1,63 @@
+::ng-deep .my-custom-panel {
+    width: 40%;
+    height: fit-content;
+  
+  
+  @media screen and (max-width: 660px){
+      width: 100%;
+    }
+  }
+
+  .mat-dialog-title{
+    text-align: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 900;
+    margin-top: 1cm;
+}
+  
+  table {
+      width: 100%;
+    }
+    
+    .mat-form-field {
+      font-size: 14px;
+      width: 95%;
+      margin-left: 1cm !important;
+    }
+
+    .mat-paginator{
+        width: 100%;
+    }
+
+    .mat-elevation-z8{
+        width: 95%;
+        margin-left: 1cm !important;
+    }
+    
+    td, th {
+      width: 10%;
+    }
+  
+  .mat-header-cell{
+    background-color: #263238;
+    color: white;
+  }
+
+.btn-warning{
+    margin: 0.5cm;
+    align-items: center;
+    height: 1.2cm;
+}
+
+.heading
+{
+    text-align: center;
+}
+
+.mat-raised-button
+{
+  background-color: #263238;
+  color: white;
+  margin-left: 0.3cm;
+}

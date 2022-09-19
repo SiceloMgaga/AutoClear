@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Update Details<h2>
+
+    <div>  
+        <form [formGroup]="editForm">
+            
+            <p class="col">           
+                <mat-form-field appearance="outline"  class="row">
+                    <mat-label>Courier Name</mat-label>
+                    <input matInput placeholder="ABC" formControlName="courierName" value="{{courier.Courier_Name}}" required>
+                    <mat-hint class="text-danger" *ngIf="editForm.get('courierName')!.touched && editForm.get('courierName')!.errors?.['required']">
+                        Please enter courier name
+                    </mat-hint>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline"  class="row">
+                    <mat-label>Email Address</mat-label>
+                    <input matInput placeholder="abc@mail.com" formControlName="emailAddress" value="{{courier.Courier_Email}}" required>
+                    <mat-hint class="text-danger" *ngIf="editForm.get('emailAddress')!.touched && editForm.get('emailAddress')!.errors?.['required']">
+                        Please enter email address
+                    </mat-hint>
+                </mat-form-field>
+                
+                 <mat-form-field appearance="outline" class="row">
+                    <mat-label>Phone</mat-label>
+                    <input matInput placeholder="012 908 6754" formControlName="phone" value="{{courier.Courier_Number}}" required>
+                    <mat-hint class="text-danger" *ngIf="editForm.get('phone')!.touched && editForm.get('phone')!.errors?.['required']">
+                        Please enter phone number
+                    </mat-hint>
+                </mat-form-field>
+            </p>
+        </form> 
+    
+        <mat-dialog-actions align="end">
+            <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+            <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateCourier()">Save</button>
+        </mat-dialog-actions>  
+    </div>
+    
+    
+    

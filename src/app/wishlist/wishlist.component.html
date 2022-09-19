@@ -1,0 +1,71 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="isHandset$ ? 'dialog' : 'navigation'"
+      [mode]="isHandset$ ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === true">
+      
+    <mat-toolbar class="title">Menu</mat-toolbar>
+    <mat-nav-list class="navItem">
+      <a mat-list-item [routerLink]="'/UserAccount'"><mat-icon>account_circle</mat-icon>Profile</a>
+      <a mat-list-item [routerLink]="'/promotions/onsale'"><mat-icon>card_giftcard</mat-icon>On Sale</a>
+      <a mat-list-item [routerLink]="'/logout'"><mat-icon>power_settings_new</mat-icon>Logout</a>
+      <a mat-list-item (click)="drawer.toggle()" mat-list-item><mat-icon>close</mat-icon>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <mat-toolbar class="navBar" color="primary">
+      <mat-toolbar-row>
+        <div class="heading">
+          <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+        <span mat-button [routerLink]="'/autoclearstore'" class="title">AutoClear<img src="/assets/ACSRNDLOGO.png" class="logo"></span>
+        </div>
+        
+        <span class="example-spacer"></span>
+        <div>
+          <a mat-button class="listItem" [routerLink]="'/application'"><mat-icon>business_center</mat-icon></a>
+          <a mat-button class="listItem" [routerLink]="'/'"><mat-icon>info</mat-icon></a>
+          <a mat-button [routerLink]="'/shopping-cart'"><mat-icon matBadge="0" matBadgeColor="warn">shopping_cart</mat-icon></a>
+          <a mat-button [routerLink]="'/wishlist'"> <mat-icon matBadge="0" matBadgeColor="warn">favorite</mat-icon> </a>
+          <a mat-button [routerLink]="'/UserAccount'"><mat-icon>account_circle</mat-icon></a>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+<div *ngIf="items.length === 0" class="alert alert-info">No Items Added to Wishlist</div>
+
+<ul *ngIf="items.length > 0" class="list-group" >
+
+<div class="col">
+  <div class="row">
+    <mat-card class="col-md-3" *ngFor="let item of items">
+      <mat-card-title-group>
+        <mat-card-title>{{ item.productName }}</mat-card-title>
+        <mat-card-subtitle>{{ item.productPrice | currency : "R" }}</mat-card-subtitle>
+        <img mat-card-md-image [src]="item.imageUrl" >
+      </mat-card-title-group>
+      <mat-card-content>
+        {{ item.description }}
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="removefromWishlist(item)">Remove</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<div>
+  <button mat-raised-button class="remove" (click)="clearWishlist()">Clear Wishlist</button>
+</div>
+<br>
+<br>
+<br>
+<app-footer></app-footer>
+

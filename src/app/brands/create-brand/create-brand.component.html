@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Add Brand</h2>
+
+<div>  
+    <form [formGroup]="createForm">
+        
+        <p class="col">
+           
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Brand Name</mat-label>
+                <input matInput placeholder="Engine" formControlName="BrandName" required>
+                <mat-hint class="text-danger" *ngIf="createForm.get('BrandName')!.touched && createForm.get('BrandName')!.errors?.['required']">
+                    Please enter brand name
+                </mat-hint>
+            </mat-form-field>
+        </p>
+
+        <mat-dialog-actions align="end">
+            <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+            <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="addBrand()">Save</button>
+        </mat-dialog-actions>
+
+    </form>
+</div>

@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Update Role</h2>
+
+<div>  
+    <form [formGroup]="editForm">
+<p class="row">
+    <mat-form-field appearance="outline"  class="row">
+        <mat-label>Role</mat-label>
+        <input matInput placeholder="Vendor" value="{{users.Roles}}" formControlName="Role" required>
+    </mat-form-field>
+</p>
+
+
+
+<mat-dialog-actions align="end">
+    <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateRole()">Save</button>
+  </mat-dialog-actions>
+    </form>
+</div>

@@ -1,0 +1,66 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: auto;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.title
+{
+  margin-top: 0.5cm;
+  font-size: 24px;
+  font-weight: 900;
+  margin-left: 0.5rem;
+}
+.navBar
+{
+  background-color: #263238;
+  height: 2.5cm;
+}
+
+.heading{
+  text-align: center;
+  margin-left: 45%;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.navItem{
+  font-weight: bold;
+  margin-left: 1cm;
+
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+} 
+
+.orderContent
+{
+  margin-left: 1cm;
+  margin-right: 1cm;
+}
+
+.navIcon{
+  width: 2rem;
+  min-width: 2rem;
+  margin-right: 0.2cm;
+}
+
+.logo
+{
+  width: 3rem;
+  min-width: 3rem;
+  margin-right: 0.2cm;
+}

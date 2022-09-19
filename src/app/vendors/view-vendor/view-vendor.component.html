@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>View Vendor Details</h2>
+
+<div *ngFor="let vendor"></div>
+<div>
+    <div>
+        <label><b>Id:</b></label> {{id}}
+    </div>
+    <div>
+        <label><b>Company Name:</b></label> {{company}}
+    </div>
+    <div>
+        <label><b>Email Address:</b></label> {{email}}
+    </div>
+    <div>
+        <label><b>Phone:</b></label> {{phone}}
+    </div>
+
+    <div>
+        <form [formGroup]="messageForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Send them a message...</mat-label>
+                <textarea matInput
+                        cdkTextareaAutosize
+                        #autosize="cdkTextareaAutosize"
+                        cdkAutosizeMinRows="10"
+                        cdkAutosizeMaxRows="300"
+                        formControlName="textMessage">
+                </textarea>
+            </mat-form-field>
+        </form>
+    </div>
+</div>
+
+<div>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button (click)="Contact()">Send</button>
+        <button class="close" mat-raised-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+</div>
+
+

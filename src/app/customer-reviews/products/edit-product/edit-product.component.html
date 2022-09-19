@@ -1,0 +1,90 @@
+<h2 mat-dialog-title>Update Details</h2>
+
+<div>  
+    <form [formGroup]="editForm">
+        
+        <p class="col">
+           
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Product Name</mat-label>
+                <input matInput placeholder="Engine" formControlName="ProductName" value="{{product.ProductName}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('ProductName')!.touched && editForm.get('ProductName')!.errors?.['required']">
+                    Please enter product name
+                </mat-hint>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="Engine is a car part" formControlName="Description" value="{{product.Description}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('Description')!.touched && editForm.get('Description')!.errors?.['required']">
+                    Please enter a product description
+                </mat-hint>
+            </mat-form-field>
+            
+        
+            <mat-form-field appearance="outline"  class="row">
+                <mat-label>Policy</mat-label>
+                <input matInput placeholder="2 year warranty" formControlName="Policy" value="{{product.Policy}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('Policy')!.touched && editForm.get('Policy')!.errors?.['required']">
+                    Please enter a policy
+                </mat-hint>
+            </mat-form-field>
+            
+             <mat-form-field appearance="outline" class="row">
+                <mat-label>Commission</mat-label>
+                <input matInput placeholder="30" formControlName="Commission" value="{{product.Commision}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('Commission')!.touched && editForm.get('Commission')!.errors?.['required']">
+                    Please enter a commission
+                </mat-hint>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Price</mat-label>
+                <input matInput placeholder="60" formControlName="ProductPrice" value="{{product.ProductPrice}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('ProductPrice')!.touched && editForm.get('ProductPrice')!.errors?.['required']">
+                    Please enter a product price
+                </mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Quantity</mat-label>
+                <input matInput placeholder="5" formControlName="ProductQuantity" value="{{product.ProductQuantity}}" required>
+                <mat-hint class="text-danger" *ngIf="editForm.get('ProductQuantity')!.touched && editForm.get('ProductQuantity')!.errors?.['required']">
+                    Please enter a quantity
+                </mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Brand</mat-label>
+                  <mat-select formControlName="Brand" required>
+                    <mat-option *ngFor="let brand of brands" [value]="brand.brandName">
+                      {{brand.brandName}}
+                    </mat-option>
+                   </mat-select>
+               </mat-form-field>
+
+               <mat-form-field appearance="outline" class="row">
+                <mat-label>Type</mat-label>
+                  <mat-select formControlName="Type">
+                    <mat-option *ngFor="let type of types" [value]="type.typeName">
+                      {{type.typeName}}
+                    </mat-option>
+                   </mat-select>
+               </mat-form-field>
+
+               <mat-form-field appearance="outline" class="row">
+                <mat-label>Category</mat-label>
+                  <mat-select formControlName="Category">
+                    <mat-option *ngFor="let category of categories" [value]="category.category">
+                      {{category.category}}
+                    </mat-option>
+                   </mat-select>
+               </mat-form-field>
+        </p>
+
+        <mat-dialog-actions align="end">
+            <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+            <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateProduct()">Save</button>
+        </mat-dialog-actions>
+    </form>   
+</div>

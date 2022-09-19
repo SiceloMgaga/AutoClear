@@ -1,0 +1,63 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  .mat-header-cell{
+    background-color: #263238;
+    color: white;
+  }
+
+  .mat-raised-button
+{
+  background-color: #263238;
+  color: white;
+  margin-left: 0.5cm;
+}
+  
+
+.heading
+{
+    text-align: center;
+}
+
+.modal-header
+{
+    text-align: center !important;
+    border-radius: 24px 24px 0px 0px !important;
+    font-weight: bold !important;
+    background-color: #263238;
+    color: white;
+    height: auto;
+}
+
+.modal-content  {
+    margin-top: 1cm !important;
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 24px 24px 24px 24px !important; 
+    position: absolute !important;
+    margin: 2px auto;
+    z-index: 1060 !important;
+}
+.modal{
+    z-index: 1060 !important;
+}
+
+.save{
+    width: auto;
+    height: auto;
+}
+
+.modal-backdrop {   
+    display: none; 
+    position: fixed;   
+}

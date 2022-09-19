@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Update Review</h2>
+<div [formGroup]="UpdateReview">
+    <mat-form-field appearance="outline" class="row">
+        <mat-label>Update Name</mat-label>
+        <input matInput formControlName="reviewName" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="row">
+        <mat-label>Rating</mat-label>
+        <input matInput formControlName="rating" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="row">
+    <mat-label>Update review...</mat-label>
+    <textarea formControlName="updatedDescription" matInput
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="10"
+                cdkAutosizeMaxRows="300">
+        </textarea>
+    </mat-form-field>
+</div>
+
+<div>  
+    <mat-dialog-actions align="end">
+        <button mat-raised-button (click)="updateReview()">Update</button>
+        <button class="close" mat-raised-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>  
+</div>
+
+

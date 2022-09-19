@@ -1,0 +1,16 @@
+<header>Your Cart:</header>
+<div *ngIf="cartItems.length === 0"  class="alert alert-info">Your Cart Is Currently Empty.</div>
+<ul  *ngIf="cartItems.length > 0 "  class="list-group">
+    <li class="list-group-item" *ngFor="let item of cartItems ; let i = index" >
+        <app-cart-item [cartItem] = "item" ></app-cart-item><i  type="submit"  (click)="RemoveFromCart(item.id)"  class='fas fa-trash'></i>
+        <br>
+        <br>
+    </li>
+    <li class="list-group-item active">
+        <strong>Total R:</strong> {{ cartTotal | currency: "R"}}
+        <br>
+        <br>
+        <button routerLink="/shopping-cart" mat-raised-button>view cart</button>
+        <button (click)="ClearCart()" mat-raised-button>Clear Cart</button>
+    </li>
+</ul>

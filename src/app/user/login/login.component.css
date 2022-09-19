@@ -1,0 +1,11 @@
+.btn{
+    align-items: center;
+}
+
+.forgotPassword{
+    text-align: center;
+    align-items: center;
+    margin-top: 0.5cm !important;
+    text-decoration: none;
+    color: gainsboro;
+}

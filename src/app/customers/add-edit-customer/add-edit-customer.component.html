@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Update Details</h2>
+
+<div>  
+    <form [formGroup]="editForm">
+<p class="row">
+    <mat-form-field appearance="outline"  class="row">
+        <mat-label>Full Name</mat-label>
+        <input matInput placeholder="John Doe" formControlName="FullName" required>
+    </mat-form-field>
+</p>
+
+<p class="row">
+    <mat-form-field appearance="outline"  class="row">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="mgagas25@icloud.com" formControlName="Email" required>
+    </mat-form-field>
+</p>
+
+<p class="row">
+    <mat-form-field appearance="outline"  class="row">
+        <mat-label>Phone Number</mat-label>
+        <input matInput placeholder="078 123 4567" formControlName="PhoneNumber" required>
+    </mat-form-field>
+</p>
+
+<p class="row">
+    <mat-form-field appearance="outline"  class="row">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="1226 Park Sreet" formControlName="Address" required>
+    </mat-form-field>
+</p>
+
+<mat-dialog-actions align="end">
+    <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="updateCustomer()">Save</button>
+  </mat-dialog-actions>
+    </form>
+</div>

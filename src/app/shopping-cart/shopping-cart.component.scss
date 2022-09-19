@@ -1,0 +1,98 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-card {
+    max-width: 600px;
+    margin-left: 25%;
+    margin-top: 5%;
+    margin-bottom: 2cm;
+  }
+  
+  .label{
+    font-size: 24px !important;
+    font-weight: 900 !important;
+  }
+  
+  .mat-tab-group{
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  .mat-raised-button
+  {
+    background-color: #263238 ;
+    color: white;
+    width: 100%;
+    height: 1.7cm;
+  }
+  
+  #heading
+  {
+    margin-top: 1cm;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .Price{
+   margin-bottom: 0.5cm;
+    margin-left: 50%;
+  }
+  
+  .mat-tab-group{
+    margin-bottom: 1cm;
+  }
+  .mat-form-field
+  {
+    width: 100%;
+  }
+
+  mat-label{
+    font-weight: 100;
+  }
+  .container
+  {
+    align-items: center;
+  }
+  
+  .title
+  {
+    margin-top: 0.5cm;
+    font-size: 24px;
+    font-weight: 900;
+    margin-left: 0.5rem;
+    margin-right: 0.5cm !important;
+  }
+  
+  .navBar
+  {
+    background-color: #263238;
+    height: 2.5cm;
+  }
+  
+  .list
+  {
+    margin-left: 5%;
+    margin-top: 1cm;
+    // align-content: center;
+  }
+  
+  .heading{
+    margin-top: 1cm;
+  }
+  
+  .logo{
+    background: white;
+    text-align: center;
+    width: 3rem;
+    min-width: 3rem;
+    border-radius: 30px;
+    padding: 0.313rem;
+    font-size: 24px;
+    font-weight: 900;
+    cursor: pointer;
+    border: none;
+   }
+.col-md-6{
+  margin-top: 1.3cm !important;
+}

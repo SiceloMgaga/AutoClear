@@ -1,0 +1,60 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="isHandset$ ? 'dialog' : 'navigation'"
+      [mode]="isHandset$ ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === true">
+      
+    <mat-toolbar class="title">Menu</mat-toolbar>
+    <mat-nav-list class="navItem">
+      <a mat-list-item [routerLink]="'/UserAccount'"><mat-icon>account_circle</mat-icon>Profile</a>
+      <a mat-list-item [routerLink]="'/promotions/onsale'"><mat-icon>card_giftcard</mat-icon>On Sale</a>
+      <a mat-list-item [routerLink]="'/logout'"><mat-icon>power_settings_new</mat-icon>Logout</a>
+      <a mat-list-item (click)="drawer.toggle()" mat-list-item><mat-icon>close</mat-icon>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <mat-toolbar class="navBar" color="primary">
+      <mat-toolbar-row>
+        <div class="heading">
+          <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+        <span mat-button [routerLink]="'/autoclearstore'" class="title">AutoClear<img src="/assets/ACSRNDLOGO.png" class="logo"></span>
+        </div>
+        
+        <span class="example-spacer"></span>
+        <div>
+          <a mat-button class="listItem" [routerLink]="'/application'"><mat-icon>business_center</mat-icon></a>
+          <a mat-button class="listItem" href="https://mgagas25.wixsite.com/my-site-4"><mat-icon>info</mat-icon></a>
+          <a mat-button [routerLink]="'/shopping-cart'"><mat-icon matBadge="0" matBadgeColor="warn">shopping_cart</mat-icon></a>
+          <a mat-button [routerLink]="'/wishlist'"> <mat-icon matBadge="0" matBadgeColor="warn">favorite</mat-icon> </a>
+          <a mat-button [routerLink]="'/UserAccount'"><mat-icon>account_circle</mat-icon></a>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="card mb-6 shadow-sm">
+      <img class="bd-placeholder-img card-img-top p-2" width="100%" src="{{Product_Image}}"/>
+          <p class="card-text col-sm-6" class="product move"><b>{{ Product_Name }} </b></p>
+          <p class="card-text col-sm-6" class="move"><strong class="text-muted">{{Product_Price | currency : "R"}}</strong></p>
+          <!-- <p class="card-text" class="move">{{ productItem.description }}</p> -->
+         
+          <div class="d-flex justify-content-between align-items-center">
+              <button mat-raised-button class="submitbutton" [routerLink]="'/single-product'" (click)="viewDetailsGetID(id)">View Details</button>
+          </div>
+          <mat-card-actions class="col">
+            <button  class="AddtoCart" mat-raised-button (click)="AddtoCart()">Add To Cart</button>
+            <button class="addToWishlist" mat-raised-button (click)="addToWishlist(promotions)">Add To Wishlist</button>
+          </mat-card-actions>
+          <br>
+    </div>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+ 

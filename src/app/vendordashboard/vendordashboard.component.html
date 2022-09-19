@@ -1,0 +1,51 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="isHandset$ ? 'dialog' : 'navigation'"
+      [mode]="isHandset$ ? 'side' : 'side'"
+      [opened]="(isHandset$ | async) === true">
+
+    <mat-toolbar class="title"><img src="/assets/ACSRNDLOGO.png" class="logo">AutoClear</mat-toolbar>
+    <mat-nav-list class="navItem">
+      <a mat-list-item (click)="ProductsRouter()"><img src="/assets/icons/new-product.png" class="navIcon">Products</a>
+      <a mat-list-item (click)="ordersRouter()"><img src="/assets/icons/note.png" class="navIcon">Orders </a>
+      <a mat-list-item (click)="isBrandsRouter()"><img src="/assets/icons/brand.png" class="navIcon">Brands </a>
+      <a mat-list-item (click)="isTypesRouter()"><img src="/assets/icons/types.png" class="navIcon">Types </a>
+      <a mat-list-item (click)="isCategories()"><img src="/assets/icons/category.png" class="navIcon">Categories </a>
+      <a mat-list-item (click)="CourierRouter()"><img src="/assets/icons/courier.png" class="navIcon">Courier </a>
+      <a mat-list-item (click)="deleteAccoutRouter()"><img src="/assets/icons/delete.png" class="navIcon">Delete Account</a>
+      <a mat-list-item [routerLink]="'/logout'"><img src="/assets/icons/switch.png" class="navIcon">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="navBar" color="primary">
+    <mat-toolbar-row>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+        
+        <span class="example-spacer"></span>
+        <div>
+          <a mat-button class="listItem" href="https://mgagas25.wixsite.com/my-site-4"><mat-icon>info</mat-icon></a>
+          <a mat-button [routerLink]="'/shopping-cart'"><mat-icon matBadge="0" matBadgeColor="warn">shopping_cart</mat-icon></a>
+          <a mat-button [routerLink]="'/wishlist'"> <mat-icon matBadge="0" matBadgeColor="warn">favorite</mat-icon> </a>
+          <a mat-button [routerLink]="'/autoclearstore'"><mat-icon>store</mat-icon></a>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <!-- Products page as home page -->
+    <app-products *ngIf="isProducts"></app-products>
+    <app-orders *ngIf="isOrders"></app-orders>
+    <app-courier *ngIf="isCourier"></app-courier>
+    <app-brands *ngIf="isBrands"></app-brands>
+    <app-types *ngIf="isTypes"></app-types>
+    <app-categories *ngIf="isCategory"></app-categories>
+    <app-request-account-deletion *ngIf="isDelete"></app-request-account-deletion>
+  </mat-sidenav-content>
+</mat-sidenav-container>

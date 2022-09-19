@@ -1,0 +1,22 @@
+<div>
+    <label id="example-radio-group-label">Pending Orders</label>
+    <div [formGroup]="optionFormGroup">
+        <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="AssignedOrder"
+        formControlName="options">
+        <mat-radio-button class="example-radio-button" *ngFor="let order of PendingOrdersList" value="{{order}}">
+            {{order}}
+        </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div>Your are about to assign an order with the Id: {{AssignedOrder}}</div>
+
+
+    <mat-dialog-actions align="end">
+        <button class="close" mat-raised-button mat-dialog-close>Cancel</button>
+        <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial (click)="getOrder()">Save</button>
+    </mat-dialog-actions> 
+</div>
+
